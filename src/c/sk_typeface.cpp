@@ -20,8 +20,8 @@
 // typeface
 
 #ifdef SK_BUILD_FOR_MAC
-sk_typeface_t* sk_typeface_create_from_ctfont(CTFontRef* font) {
-    return ToTypeface(SkMakeTypefaceFromCTFont(*font).release());
+sk_typeface_t* sk_typeface_create_from_ctfont(CTFontRef font) {
+    return ToTypeface(SkMakeTypefaceFromCTFont(font).release());
 }
 #endif
 
