@@ -11,10 +11,17 @@
 #define sk_typeface_DEFINED
 
 #include "include/c/sk_types.h"
+#ifdef SK_BUILD_FOR_MAC
+#include "include/ports/SKTypeface_mac.h"
+#endif
 
 SK_C_PLUS_PLUS_BEGIN_GUARD
 
 // typeface
+
+#ifdef SK_BUILD_FOR_MAC
+SK_C_API sk_typeface_t* sk_typeface_create_from_ctfont(CTFontRef* font);
+#endif
 
 SK_C_API void sk_typeface_unref(sk_typeface_t* typeface);
 SK_C_API sk_fontstyle_t* sk_typeface_get_fontstyle(const sk_typeface_t* typeface);

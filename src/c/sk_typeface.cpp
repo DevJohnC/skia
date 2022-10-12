@@ -19,6 +19,12 @@
 
 // typeface
 
+#ifdef SK_BUILD_FOR_MAC
+sk_typeface_t* sk_typeface_create_from_ctfont(CTFontRef* font) {
+    return ToTypeface(SkMakeTypefaceFromCTFont(*font).release());
+}
+#endif
+
 void sk_typeface_unref(sk_typeface_t* typeface) {
     SkSafeUnref(AsTypeface(typeface));
 }
