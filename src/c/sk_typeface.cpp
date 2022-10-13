@@ -17,10 +17,6 @@
 
 #include "src/c/sk_types_priv.h"
 
-#ifdef SK_BUILD_FOR_WIN
-#include <Windows.h>
-#endif
-
 // typeface
 
 #ifdef SK_BUILD_FOR_MAC
@@ -30,8 +26,11 @@ sk_typeface_t* sk_typeface_create_from_ctfont(CTFontRef font) {
 #endif
 
 #ifdef SK_BUILD_FOR_WIN
-sk_typeface_t* sk_typeface_create_from_logfont(LOGFONT font) {
-	return ToTypeface(SkMakeTypefaceFromLOGFONT(font).release());
+sk_typeface_t* sk_typeface_create_from_dwfont(IDWriteFactory* factory,
+                                              IDWriteFontFace* fontFace,
+                                              IDWriteFont* font,
+                                              IDWriteFontFamily* fontFamily) {
+	return ToTypeface(DWriteFontTypeface::Make(factory, fontFace, font, fontFamily, nullptr).release());
 }
 #endif
 

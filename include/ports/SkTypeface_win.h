@@ -21,8 +21,6 @@ typedef struct tagLOGFONTA LOGFONTA;
 typedef LOGFONTA LOGFONT;
 #endif  // UNICODE
 
-SK_API extern sk_sp<SkTypeface> SkMakeTypefaceFromLOGFONT(const LOGFONT&);
-
 /**
  *  Like the other Typeface create methods, this returns a new reference to the
  *  corresponding typeface for the specified logfont. The caller is responsible

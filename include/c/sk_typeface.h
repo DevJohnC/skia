@@ -17,7 +17,7 @@
 #endif
 
 #ifdef SK_BUILD_FOR_WIN
-#include "include/ports/SkTypeface_win.h"
+#include "src/ports/SkTypeface_win_dw.h"
 #endif
 
 SK_C_PLUS_PLUS_BEGIN_GUARD
@@ -29,7 +29,10 @@ SK_C_API sk_typeface_t* sk_typeface_create_from_ctfont(CTFontRef font);
 #endif
 
 #ifdef SK_BUILD_FOR_WIN
-SK_C_API sk_typeface_t* sk_typeface_create_from_logfont(LOGFONT font);
+SK_C_API sk_typeface_t* sk_typeface_create_from_dwfont(IDWriteFactory* factory,
+                                                       IDWriteFontFace* fontFace,
+                                                       IDWriteFont* font,
+                                                       IDWriteFontFamily* fontFamily);
 #endif
 
 SK_C_API void sk_typeface_unref(sk_typeface_t* typeface);
