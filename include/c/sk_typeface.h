@@ -13,11 +13,11 @@
 #include "include/c/sk_types.h"
 
 #ifdef SK_BUILD_FOR_MAC
-#include "include/ports/SKTypeface_mac.h"
+#include "include/ports/SkTypeface_mac.h"
 #endif
 
 #ifdef SK_BUILD_FOR_WIN
-#include "include/ports/SKTypeface_win.h"
+#include "include/ports/SkTypeface_win.h"
 #endif
 
 SK_C_PLUS_PLUS_BEGIN_GUARD
