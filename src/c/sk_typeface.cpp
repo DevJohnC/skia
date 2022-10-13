@@ -17,6 +17,10 @@
 
 #include "src/c/sk_types_priv.h"
 
+#ifdef SK_BUILD_FOR_WIN
+#include <Windows.h>
+#endif
+
 // typeface
 
 #ifdef SK_BUILD_FOR_MAC
