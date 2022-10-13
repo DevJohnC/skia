@@ -25,6 +25,12 @@ sk_typeface_t* sk_typeface_create_from_ctfont(CTFontRef font) {
 }
 #endif
 
+#ifdef SK_BUILD_FOR_WIN
+sk_typeface_t* sk_typeface_create_from_logfont(LOGFONT font) {
+	return ToTypeface(SkCreateTypefaceFromLOGFONT(font).release());
+}
+#endif
+
 void sk_typeface_unref(sk_typeface_t* typeface) {
     SkSafeUnref(AsTypeface(typeface));
 }
