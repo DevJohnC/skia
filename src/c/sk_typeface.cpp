@@ -31,7 +31,7 @@ sk_typeface_t* sk_typeface_create_from_ctfont(CTFontRef font) {
 
 #ifdef SK_BUILD_FOR_WIN
 sk_typeface_t* sk_typeface_create_from_logfont(LOGFONT font) {
-	return ToTypeface(SkCreateTypefaceFromLOGFONT(font).release());
+	return ToTypeface(SkCreateTypefaceFromLOGFONT(font));
 }
 #endif
 
